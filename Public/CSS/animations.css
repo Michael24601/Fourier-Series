@@ -1,0 +1,49 @@
+
+#svg-animation{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.arrow{
+    fill-opacity: 0.8;
+}
+
+#arrow1{
+    --order: 1;
+}
+#arrow2{
+    --order: 2;
+}
+#arrow3{
+    --order: 3;
+}
+#arrow4{
+    --order: 4;
+}
+#arrow5{
+    --order: 5;
+}
+
+#arrow1, #arrow2, #arrow3,
+#arrow4, #arrow5{
+    opacity: 0;
+    animation: stagger 4s ease forwards infinite;
+    animation-delay: calc(var(--order) * 300ms);
+}
+
+@keyframes stagger {
+    20%{
+        opacity: 0;
+    }
+
+    20%, 50%{
+        opacity: 1;
+        transform: translateX(10%);
+    }
+
+    80%, 100%{
+        opacity: 0;
+        transform: translateX(calc(-10% * var(--order)));
+    }
+}
