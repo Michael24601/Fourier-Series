@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> website-name </title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="../CSS/stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container forms">
+
+            <!-- Login -->
+
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    
+                    <form action="#" id="login-form">
+                        <div class="field input-field">
+                            <input type="text" placeholder="Username" class="input" id="login-username" required>
+                        </div>
+                        <div class="field input-field" id="login-password-field">
+                            <input type="password" placeholder="Password" class="password" id="login-password" required>
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+                        <div class="error-message">
+                            <span id="login-error-message"></span>
+                        </div>
+                        <div class="field button-field">
+                            <button>Login</button>
+                        </div>
+                    </form>
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="/signup" class="link signup-link">Signup</a></span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- JavaScript -->
+        <script src="../JS/login.js"></script>
+    </body>
+</html>
