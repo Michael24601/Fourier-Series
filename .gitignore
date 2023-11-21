@@ -1,4 +1,2 @@
-node_modules/
 .vscode/
-Public/SVG/
-Public/images/
+*.dll

@@ -22,6 +22,11 @@ run:
 	./main.exe
 
 clean:
+# Ensure empty line is printed before clean so output is clear
+# since the output is on the terminal, not a file
+	@echo off
+	@echo. & rem Empty line
 	del /Q /S *.o *.exe
+	@echo on
 
 
