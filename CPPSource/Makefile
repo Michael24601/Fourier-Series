@@ -1,20 +1,27 @@
+# Steps: include bin dlls in project directory. Include sfml, and
+# link sfml lib, with graphics, system and windows
+
 # Specify compiler
-CC=g++
+CC = g++
 
 # Specify linker
-LINK=g++
+LINK = g++
 
-
+# Build all target
 all : compile link run clean
 
+test: compile link run
+
 compile:
-	$(CC) -c *.cpp
+	$(CC) -c *.cpp -IC:\SFML_MINGW\SFML-2.5.1\include
 
 link:
-	$(LINK) *.o -o generateFourrier
+	$(LINK) *.o -o main -LC:\SFML_MINGW\SFML-2.5.1\lib -lsfml-graphics -lsfml-window -lsfml-system
 
 run:
-	./generateFourrier.exe
+	./main.exe
 
 clean:
 	del /Q /S *.o *.exe
+
+
