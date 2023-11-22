@@ -1,5 +1,5 @@
 /******************************************************************************
- * Point.h
+ * ComplexNumber.h
  * Author: Michael Saba
  * Date: 2/16/2023
  * Header file for the Complex Number class.

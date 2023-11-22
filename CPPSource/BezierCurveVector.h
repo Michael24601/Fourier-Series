@@ -16,7 +16,6 @@
 #include "BezierCurve.h"
 #include "ComplexNumber.h"
 #include "unit.h"
-#include "constants.h"
 
 namespace fs{
     /**************************************************************************
@@ -35,7 +34,8 @@ namespace fs{
         /********************************************************************** 
          * Interval of time for which each BezierCurve is defined.
          * For example, if interval is 1, then the first Bezier Curve.
-         * would be defined from t = 0 to t = 1 ... etc. 
+         * would be defined from t = 0 to t = 1, and the second from t = 1 to
+         * t = 2 etc...
         **********************************************************************/
         real interval; 
 
