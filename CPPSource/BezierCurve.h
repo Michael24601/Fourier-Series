@@ -16,7 +16,6 @@
 #include "Polynomial.h"
 #include "ComplexNumber.h"
 #include "unit.h"
-#include "constants.h"
 
 namespace fs{
     /**************************************************************************
