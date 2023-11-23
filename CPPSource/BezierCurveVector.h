@@ -88,7 +88,7 @@ namespace fs{
         **********************************************************************/
         void addBezierCurve(std::vector<Point>& points);
 
-        // Interval setter, recalculates each Bezier Curve. Muts be positive
+        // Interval setter, recalculates each Bezier Curve. Muts be positive.
         void setInterval(real interval);
 
         /**********************************************************************
