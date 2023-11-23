@@ -1,7 +1,4 @@
 /******************************************************************************
- * Polynomial.cpp
- * Author: Michael Saba
- * Date: 1/15/2023
  * Source file for the Polynomial class member functions.
 ******************************************************************************/
 
@@ -205,6 +202,5 @@ std::ostream& operator<<(std::ostream& out, const Polynomial& p){
     for(int i = 1; i <= p.getDegree(); i++){
         out << " + " << p.getCoefficient(i) << "t^" << i;
     }
-    out << "\n";
     return out;
 }

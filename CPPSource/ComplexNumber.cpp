@@ -1,7 +1,4 @@
 /******************************************************************************
- * ComplexNumber.cpp
- * Author: Michael Saba
- * Date: 2/17/2023
  * Source file for the ComplexNumber class member functions.
 ******************************************************************************/
 
@@ -10,7 +7,7 @@
 using namespace fs;
 
 // No arg constructor definition
-ComplexNumber::ComplexNumber() : r{}, i{} {}
+ComplexNumber::ComplexNumber() : r{0}, i{0} {}
 
 
 // Argumented constructor definition 
@@ -38,6 +35,40 @@ void ComplexNumber::setReal(real r){
 // Imaginary part setter definition
 void ComplexNumber::setImaginary(real i){
     this->i = i;
+}
+
+
+real ComplexNumber::getAngle() const {
+    return std::atan2(i, r);
+}
+
+
+ComplexNumber ComplexNumber::addAngleWithoutModifying(real angleToAdd) const {
+    real magnitude = this->getMagnitude();
+    real currentAngle = this->getAngle();
+
+    real newAngle = currentAngle + angleToAdd;
+
+    real newR = magnitude * std::cos(newAngle);
+    real newI = magnitude * std::sin(newAngle);
+
+    return ComplexNumber(newR, newI);
+}
+
+
+void ComplexNumber::addAngle(real angleToAdd) {
+    real magnitude = this->getMagnitude();
+    real currentAngle = this->getAngle();
+
+    real newAngle = currentAngle + angleToAdd;
+
+    this->r = magnitude * std::cos(newAngle);
+    this->i = magnitude * std::sin(newAngle);
+}
+
+
+real ComplexNumber::getMagnitude() const{
+    return std::sqrt(r * r + i * i);
 }
 
 
@@ -80,6 +111,6 @@ ComplexNumber& ComplexNumber::operator/=(real right){
 
 // Overloaded output operator definition
 std::ostream& operator<<(std::ostream& out, const ComplexNumber& number){
-    out << number.getReal() << ", " << number.getImaginary() << "i"; 
+    out << "(" << number.getReal() << " + " << number.getImaginary() << " * i)"; 
     return out;
 }

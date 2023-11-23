@@ -1,7 +1,4 @@
 /******************************************************************************
- * bezierCurveVector.cpp
- * Author: Michael Saba
- * Date: 3/1/2023
  * Source file for the BezierCurveVector class member functions.
 ******************************************************************************/
 
@@ -110,7 +107,9 @@ std::ostream& operator<<(std::ostream& out, const BezierCurveVector& vector){
     }
     else{
         for(int i = 0; i < vector.getBezierCurveNumber(); i++){
-            out << "[" << (i+1) << "]\n" << vector.getBezierCurve(i) << "\n";
+            out << "Bezier Curve [" << (i) << "]:\n" 
+                << vector.getBezierCurve(i) << "\n";
         }
     }
+    return out;
 }
