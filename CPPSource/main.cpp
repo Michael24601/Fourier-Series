@@ -9,7 +9,7 @@
 
 int main() {
 
-    std::string filePath = "svg/clef.svg";
+    std::string filePath = "svg/giga.svg";
     // A low number of circles makes it lose its shape and become blob-like,
     // (the number of rotating vectors, the tip of which traces the image)
     int numberOfCircles = 500;
@@ -19,7 +19,7 @@ int main() {
     int frameRate = 60;
     // A low animation time means there won't be enough frames to smoothly
     // animate the drawing, which makes it blocky
-    int animationTime = 10000; // In ms
+    int animationTime = 20000; // In ms
     bool showCircles = true;
 
     /**************************************************************************
@@ -77,6 +77,7 @@ int main() {
 
 
     // This part shows the Fourier Series drawing the image
+
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8; // Adjust the level as needed
     sf::RenderWindow window(sf::VideoMode(canvasSize, canvasSize), 

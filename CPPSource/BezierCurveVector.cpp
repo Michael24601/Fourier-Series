@@ -79,7 +79,22 @@ void BezierCurveVector::addBezierCurve(std::vector<Point>& points){
     }
     // Else we can't push the BezierCurve
     else{
-         std::cerr << "Cannot add discontinuous Bezier Curve\n";
+        std::cerr << "Cannot add discontinuous Bezier Curve\n";
+    }
+}
+
+
+void BezierCurveVector::setInterval(real interval){
+    if(interval > 0){
+        this->interval = interval;
+        for(int i = 0; i < getBezierCurveNumber(); i++){
+            // The curves automatically update their parametric functions
+            bezierCurveVector[i].setTimeParameters(i * interval, 
+                (i+1) * interval);
+        }
+    } else {
+        std::cerr 
+            << "Cannot define bezier curve with a negative time interval\n";
     }
 }
 

@@ -55,6 +55,8 @@ namespace fs{
         
         /**********************************************************************
          * Vector of pointers to the control points of the bezier curve.
+         * There must at least be 2 points, the start and end. The rest are
+         * control points.
         **********************************************************************/
         std::vector<Point> points;
         
