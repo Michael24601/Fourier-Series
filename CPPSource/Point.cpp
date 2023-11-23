@@ -1,7 +1,4 @@
 /******************************************************************************
- * Point.cpp
- * Author: Michael Saba
- * Date: 1/15/2023
  * Source file for the Point class member functions.
 ******************************************************************************/
 
@@ -39,6 +36,28 @@ void Point::setX(real x){
 void Point::setY(real y){
     this->y = y;
 }
+
+
+Point& Point::operator+=(const Point& point){
+    this->x += point.x;
+    this->y += point.y;
+    return *this;
+}
+
+
+Point& Point::operator*=(real scale){
+    this->x *= scale;
+    this->y *= scale;
+    return *this;
+}
+
+
+Point& Point::operator/=(real scale){
+    this->x /= scale;
+    this->y /= scale;
+    return *this;
+}
+
 
 bool Point::operator==(const Point& right){
     return (x == right.x && y == right.y);

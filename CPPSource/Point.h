@@ -46,6 +46,15 @@ namespace fs {
 
         void setY(real);    // Setter for y  
 
+        // Overloaded += operator
+        Point& operator+=(const Point& point);
+
+        // Overloaded *= operator
+        Point& operator*=(real scale);
+
+        // Overloaded /= operator
+        Point& operator/=(real scale);
+
         // Overloaded comparison operator. Returns true if x and y match.
         bool operator==(const Point& right);
         

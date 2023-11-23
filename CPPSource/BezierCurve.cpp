@@ -1,7 +1,4 @@
 /******************************************************************************
- * BezierCurve.cpp
- * Author: Michael Saba
- * Date: 1/25/2023
  * Source file for the BezierCurve class member functions.
 ******************************************************************************/
 

@@ -1,9 +1,28 @@
 /******************************************************************************
- * Polynomial.h
- * Author: Michael Saba
- * Date: 1/15/2023
- * Header file for the BezierCurve class definition, which describes the
- * bezier curve used to represent SVG paths.
+ * BezierCurve.h
+ * Header file for a Bezier Curve class. A bezier curve is a curve specified
+ * using a start and end point, and any number (starting at 0) of control
+ * points in the middle.
+ * A line is a Bezier curve, where its shape is traced by moving uniformally
+ * from the start point to the end point.
+ * A quadratic Bezier Curve is one that has a single control point. It is
+ * defined by first drawing the two lines between the start and control
+ * point, and the control and end point, and then simultaneously moving two
+ * points, one on each line, all while keeping track of the line drawn between
+ * these two new points. During this interval of time, the path traced by
+ * a point tarvelling along this new line is the quadratic bezier curve.
+ * For the cubic curve, we just add another control point, and this time,
+ * we get two new lines, and instead of tracing the path of the point along
+ * one of them, we use two points, one for each line, draw yet another line
+ * between them, and trace the path of a point along it.
+ * This goes on for each degree we add.
+ * This class defines the process by which we can get a parametric function
+ * with an x(t) and y(t) component that are both polynomials of a degree
+ * matching that of the bezier curve we are trying to model. The start and
+ * end intervals of the functions (time t at which the polynomials x(t) and
+ * y(t) are at the start point and end point respectively) are up to us to
+ * choose, though the resulting functions will change depending on the
+ * choice. 
 ******************************************************************************/
 
 #ifndef BezierCurve_H

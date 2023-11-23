@@ -1,9 +1,13 @@
 /******************************************************************************
- * Polynomial.h
- * Author: Michael Saba
- * Date: 2/28/2023
- * Header file for the BezierCurve class definition, which describes the
- * bezier curve used to represent SVG paths.
+ * BezierCurveVector.h
+ * Header file for a vector of consecutive bezier curves.
+ * Here consecutive means two things: When one curve starts at t=t0 and ends
+ * at t=t1, the curve after it must start at t=t1. And if a curve ends at
+ * a point (x1, y1), the next curve must start at the same point, for
+ * continuity.
+ * With that, the curves now form a piece-wise function from t0 to tn.
+ * For simplicity, we start the time at t = 0, and give each curve an equal
+ * amount of time (interval). 
 ******************************************************************************/
 
 #ifndef BEZIER_CURVE_VECTOR_H
@@ -69,7 +73,7 @@ namespace fs{
          * if it fits the criteria, otherwise no copy is made.
          * The new BezierCurve must not be empty, or it won't be added.
          * The time parameters of the curve are set and managed.
-         **********************************************************************/
+        **********************************************************************/
         void addBezierCurve(const BezierCurve& bezierCurve);
 
         /**********************************************************************
@@ -81,7 +85,7 @@ namespace fs{
          * if it fits the criteria, otherwise no copy is made.
          * The new BezierCurve must not be empty, or it won't be added.
          * The time parameters of the curve are set and managed.
-         **********************************************************************/
+        **********************************************************************/
         void addBezierCurve(std::vector<Point>& points);
 
         // Interval setter, recalculates each Bezier Curve. Muts be positive

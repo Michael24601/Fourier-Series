@@ -1,16 +1,14 @@
 /******************************************************************************
  * ComplexNumber.h
- * Author: Michael Saba
- * Date: 2/16/2023
- * Header file for the Complex Number class.
+ * Header file for Complex number class.
 ******************************************************************************/
 
 #ifndef COMPLEX_NUMBER_H
 #define COMPLEX_NUMBER_H
 
 #include <iostream>
+#include <cmath>
 #include "unit.h"
-
 
 namespace fs {
     /**************************************************************************
@@ -39,6 +37,43 @@ namespace fs {
         void setReal(real r);       // Setter for the real component
 
         void setImaginary(real i);  // Setter for the imaginary component
+
+        /**********************************************************************
+         * All complex numbers are localted on a circle with its center on
+         * the origin of the complex plane and a radius equal to the
+         * magnitude or norm of the complex number.
+         * This function returns the angle of number along the positive side
+         * with the x axis.
+         * The angle is in radians.
+        **********************************************************************/
+        real getAngle() const;
+
+        /**********************************************************************
+         * All complex numbers are localted on a circle with its center on
+         * the origin of the complex plane and a radius equal to the
+         * magnitude or norm of the complex number.
+         * This function rotates the complex number along this circle the
+         * given angle, and returns this as a new complex number, without
+         * modifying the class member variables.
+        **********************************************************************/
+        ComplexNumber addAngleWithoutModifying(real angleToAdd) const;
+
+        /**********************************************************************
+         * All complex numbers are localted on a circle with its center on
+         * the origin of the complex plane and a radius equal to the
+         * magnitude or norm of the complex number.
+         * This function rotates the complex number along this circle the
+         * given angle, and modifies the object while doing so.
+        **********************************************************************/
+        void addAngle(real angleToAdd);
+
+        /**********************************************************************
+         * All complex numbers are localted on a circle with its center on
+         * the origin of the complex plane and a radius equal to the
+         * magnitude or norm of the complex number.
+         * This function returns the magnitude.
+        **********************************************************************/
+        real getMagnitude() const;
 
         /**********************************************************************
          * Overloaded + operator
