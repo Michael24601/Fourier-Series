@@ -3,23 +3,27 @@
 #include <iostream>
 #include <vector>
 
-#include "unit.h"
 #include "FourierSeries.h"
-
 
 int main() {
 
-    std::string filePath = "svg/giga.svg";
+    std::string filePath = "svg/lebanon.svg";
     // A low number of circles makes it lose its shape and become blob-like,
-    // (the number of rotating vectors, the tip of which traces the image)
-    int numberOfCircles = 500;
+    // (the number of rotating vectors, the tip of which traces the image).
+    int numberOfCircles = 300;
     // A low integration accuracy makes the drawing spikier
+    // Lower it more when working with images with straight lines, as they
+    // require more precision to come out looking accurate and un-spiky.
     fs::real integrationInterval = 0.0001;
     int canvasSize = 800; // In px
     int frameRate = 60;
     // A low animation time means there won't be enough frames to smoothly
-    // animate the drawing, which makes it blocky
+    // animate the drawing, which makes it blocky. This has no effect on
+    // Fourier series itself (which is always created to loop from 0 to 1),
+    // and only on the animation used to display the image drawn by the series.
     int animationTime = 20000; // In ms
+    // True when we want to show the circles and the vectors in the image
+    // drawing process, false when we only want to show the vectors.
     bool showCircles = true;
 
     /**************************************************************************
@@ -116,7 +120,7 @@ int main() {
             circleShape.setOutlineThickness(1);
             circleShape.setFillColor(sf::Color::Transparent);
             sf::Color outlineColor = sf::Color(255, 255, 255);
-            outlineColor.a = 80;  // Opacity
+            outlineColor.a = 40;  // Opacity
             circleShape.setOutlineColor(outlineColor);
             circleShapes.push_back(circleShape);
 
