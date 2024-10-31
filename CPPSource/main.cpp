@@ -1,4 +1,7 @@
 
+// Also defined in the makefile
+#define SFML_STATIC
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
@@ -7,7 +10,7 @@
 
 int main() {
 
-    std::string filePath = "svg/lebanon.svg";
+    std::string filePath = "svg/giga.svg";
     // A low number of circles makes it lose its shape and become blob-like,
     // (the number of rotating vectors, the tip of which traces the image).
     int numberOfCircles = 300;
@@ -42,7 +45,7 @@ int main() {
     
     // The svg path
     std::string path = fourierSeries.parseSVG(filePath);
-    std:: cout << path << "\n\n"; 
+    std::cout << path << "\n\n"; 
 
     // The points in each bezier curve, parsed from the path
     std::vector<std::vector<fs::Point>> points = 

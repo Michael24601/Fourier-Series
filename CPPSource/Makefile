@@ -1,6 +1,3 @@
-# Steps: include bin dlls in project directory. Include sfml, and
-# link sfml lib, with graphics, system and windows
-
 # Specify compiler
 CC = g++
 
@@ -12,11 +9,12 @@ all : compile link run clean
 
 test: compile link run
 
+# SFML_STATIC can also be defined in the main.cpp file
 compile:
-	$(CC) -c *.cpp -IC:\SFML_MINGW\SFML-2.5.1\include
+	$(CC) -c *.cpp -IC:\SFML_MINGW\SFML-2.6.1\include -DSFML_STATIC
 
 link:
-	$(LINK) *.o -o main -LC:\SFML_MINGW\SFML-2.5.1\lib -lsfml-graphics -lsfml-window -lsfml-system
+	$(LINK) *.o -o main -LC:\SFML_MINGW\SFML-2.6.1\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32
 
 run:
 	./main.exe
